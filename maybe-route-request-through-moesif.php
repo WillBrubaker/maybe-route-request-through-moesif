@@ -41,17 +41,16 @@ add_filter( 'pre_http_request', 'handsome_bearded_guy_maybe_reroute_http_request
  */
 function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, $url ) {
 	include( 'secrets.php' );	
-	$patterns  = array(
-		'paypal-standard'         => '/https:\/\/api-3t.paypal.com\/nvp/',
-		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com\/nvp/',
-		'stripe'                  => '/https:\/\/api.stripe.com\/v1\//',
+	$patterns = array(
+		'paypal-standard' => '/https:\/\/api-3t.paypal.com/',
+		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com/',
+		'stripe'          => '/https:\/\/api.stripe.com/',
 	);
-	/**
-	 *  */	
+	
 	$replacements = array(
-		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id . '/nvp/',
-		'paypal-standard' => 'https://https-api--3t-paypal-com-3.moesif.net/' . $moesif_id . '/nvp/',
-		'stripe'          => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id . '/v1/',
+		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id,
+		'paypal-standard' => 'https://https-api--3t-paypal-com-3.moesif.net/' . $moesif_id,
+		'stripe'          => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

@@ -40,17 +40,19 @@ add_filter( 'pre_http_request', 'handsome_bearded_guy_maybe_reroute_http_request
  * @return bool/response
  */
 function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, $url ) {
-	include( 'secrets.php' );	
+	include 'secrets.php';
 	$patterns = array(
-		'paypal-standard' => '/https:\/\/api-3t.paypal.com/',
+		'paypal-standard'         => '/https:\/\/api-3t.paypal.com/',
 		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com/',
-		'stripe'          => '/https:\/\/api.stripe.com/',
+		'stripe'                  => '/https:\/\/api.stripe.com/',
+		'usps'                    => '/http:\/\/production.shippingapis.com/',
 	);
-	
+
 	$replacements = array(
 		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id,
-		'paypal-standard' => 'https://https-api--3t-paypal-com-3.moesif.net/' . $moesif_id,
-		'stripe'          => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id,
+		'paypal-standard'         => 'https://https-api--3t-paypal-com-3.moesif.net/' . $moesif_id,
+		'stripe'                  => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id,
+		'usps'                    => 'https://http-production-shippingapis-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

@@ -37,7 +37,7 @@ add_filter( 'pre_http_request', 'handsome_bearded_guy_maybe_reroute_http_request
  * @param array                $args HTTP request arguments. @see WP_Http class.
  * @param bool|array|WP_Error  $url The request URL.
  *
- * @return bool/response
+ * @return false|array|WP_Error
  */
 function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, $url ) {
 	include 'secrets.php';
@@ -45,14 +45,14 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'paypal-standard'         => '/https:\/\/api-3t.paypal.com/',
 		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com/',
 		'stripe'                  => '/https:\/\/api.stripe.com/',
-		'usps'                    => '/http:\/\/production.shippingapis.com/',
+		'usps'                    => '/https:\/\/secure.shippingapis.com/',
 	);
 
 	$replacements = array(
-		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id,
 		'paypal-standard'         => 'https://https-api--3t-paypal-com-3.moesif.net/' . $moesif_id,
+		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id,
 		'stripe'                  => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id,
-		'usps'                    => 'https://http-production-shippingapis-com-3.moesif.net/' . $moesif_id,
+		'usps'                    => 'https://https-secure-shippingapis-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

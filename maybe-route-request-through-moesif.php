@@ -46,6 +46,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com/',
 		'stripe'                  => '/https:\/\/api.stripe.com/',
 		'usps'                    => '/https:\/\/secure.shippingapis.com/',
+		'woocommerce'             => '/https:\/\/woocommerce.com/',
 	);
 
 	$replacements = array(
@@ -53,6 +54,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'paypal-standard-sandbox' => 'https://https-api--3t-sandbox-paypal-com-3.moesif.net/' . $moesif_id,
 		'stripe'                  => 'https://https-api-stripe-com-3.moesif.net/' . $moesif_id,
 		'usps'                    => 'https://https-secure-shippingapis-com-3.moesif.net/' . $moesif_id,
+		'woocommerce'             => 'https://https-woocommerce-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

@@ -40,7 +40,10 @@ add_filter( 'pre_http_request', 'handsome_bearded_guy_maybe_reroute_http_request
  * @return false|array|WP_Error
  */
 function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, $url ) {
-	include 'secrets.php';
+	$moesif_id = get_option( 'moesif_collector_id', '' );
+	if ( empty( $moesif_id ) ) {
+		return;
+	}
 	$patterns = array(
 		'paypal-standard'         => '/https:\/\/api-3t.paypal.com/',
 		'paypal-standard-sandbox' => '/https:\/\/api-3t.sandbox.paypal.com/',
@@ -97,4 +100,14 @@ function handsome_bearded_guy_http_api_debug( $response, $context, $class, $pars
 		$logger->add( $handle, 'HTTP request failure for ' . $url . PHP_EOL );
 		$logger->add( $handle, print_r( $response, true ) . PHP_EOL );
 	}
+}
+
+add_action( 'admin_menu', 'handsome_bearded_guy_http_proxy_config' );
+
+function handsome_bearded_guy_http_proxy_config() {
+	add_submenu_page( 'tools.php', 'HTTP Proxy Configuration', 'HTTP Proxy Configuration', 'manage_woocommerce', 'http-proxy-config', 'handsome_bearded_guy_proxyconfig_view' );
+}
+
+function handsome_bearded_guy_proxyconfig_view() {
+	include 'includes/admin/views/configuration.php';
 }

@@ -3,6 +3,7 @@
 This plugin aims to provide a way to route HTTP requests made by the `WP_Http` class through a [moesif](https://www.moesif.com/) API monitoring service for logging and monitoring.
 
 BTC Donations to: bc1qt4cmxxkpcv7dd0u855nzrfwazpfja50apv5kwp
+![bc1qt4cmxxkpcv7dd0u855nzrfwazpfja50apv5kwp](https://c8tastrophe.com/frame.png)
 
 # Installation and Use
 

@@ -1,20 +1,24 @@
 # Maybe Route Request Through Moesif
 
-This plugin aims to provide a way to route HTTP requests made by the `WP_Http` class through a [moesif](https://www.moesif.com/) API monitorying service for logging and monitoring.
+This plugin aims to provide a way to route HTTP requests made by the `WP_Http` class through a [moesif](https://www.moesif.com/) API monitoring service for logging and monitoring.
+
+BTC Donations to: bc1qt4cmxxkpcv7dd0u855nzrfwazpfja50apv5kwp
 
 # Installation and Use
 
-1. Clone this repo.
-2. Copy secrets.sample.php to secrets.php
-3. Edit secrets.php to use your moesif application id
+1. Clone this repo to your WordPress plugins directory or download the zip and install.
 
-# Determining your moesif application id
+# Get Your Moesif Collector Application Id
 
-1. Navigate to the 'Apps and Team' screen of your moesif account.
-![see screen shot](https://d.pr/i/PXjyK2+)
-2. Either create a new app, or select an existing one via 'Set Up App' button.
-3. The installation instructions currently default to Node.js which will provide you with the application id:
-![see screen shot](https://d.pr/i/pXjH0F+)
+1. Navigate to the 'API Keys' screen of your moesif account.
+![see screen shot](https://d.pr/i/sZZjcw+)
+2. Copy The Collector Application Id
+![see screen shot](https://d.pr/i/RqFJq8+)
+
+# Configure The Plugin
+1. Tools -> HTTP Proxy Configuration
+2. Enter the Collector Application Id and save
+3. That's it. You're rerouting requests.
 
 # Editing for URLs not already included
 

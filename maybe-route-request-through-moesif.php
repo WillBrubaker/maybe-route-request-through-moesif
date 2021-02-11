@@ -53,6 +53,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'connect-woo'             => '/https:\/\/connect.woocommerce.com/',
 		'fb'                      => '/https:\/\/graph.facebook.com/',
 		'gmaps'                   => '/https:\/\/maps.googleapis.com/',
+		'square'                  => '/https:\/\/connect.squareup.com/',
 	);
 
 	$replacements = array(
@@ -64,6 +65,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'connect-woo'             => 'https://https-connect-woocommerce-com-3.moesif.net/' . $moesif_id,
 		'fb'                      => 'https://https-graph-facebook-com-3.moesif.net/' . $moesif_id,
 		'gmaps'                   => 'https://https-maps-googleapis-com-3.moesif.net/' . $moesif_id,
+		'square'                  => 'https://https-connect-squareup-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

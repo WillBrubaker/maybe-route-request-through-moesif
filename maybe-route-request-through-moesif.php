@@ -54,6 +54,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'fb'                      => '/https:\/\/graph.facebook.com/',
 		'gmaps'                   => '/https:\/\/maps.googleapis.com/',
 		'square'                  => '/https:\/\/connect.squareup.com/',
+		'auspost'                 => '/https:\/\/digitalapi.auspost.com.au/',
 	);
 
 	$replacements = array(
@@ -66,6 +67,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'fb'                      => 'https://https-graph-facebook-com-3.moesif.net/' . $moesif_id,
 		'gmaps'                   => 'https://https-maps-googleapis-com-3.moesif.net/' . $moesif_id,
 		'square'                  => 'https://https-connect-squareup-com-3.moesif.net/' . $moesif_id,
+		'auspost'                 => 'https://https-digitalapi-auspost-com-au-3.moesif.net/' . $moesif_id, ,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

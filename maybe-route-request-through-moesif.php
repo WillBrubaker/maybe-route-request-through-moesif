@@ -57,6 +57,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'auspost'                 => '/https:\/\/digitalapi.auspost.com.au/',
 		'slack'                   => '/https:\/\/slack.com/',
 		'wp-api'                  => '/https:\/\/public-api.wordpress.com/',
+		'wc-connect'              => '/https:\/\/api.woocommerce.com/',
 	);
 
 	$replacements = array(
@@ -72,6 +73,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'auspost'                 => 'https://https-digitalapi-auspost-com-au-3.moesif.net/' . $moesif_id,
 		'slack'                   => 'https://https-slack-com-3.moesif.net/' . $moesif_id,
 		'wp-api'                  => 'https://https-public--api-wordpress-com-3.moesif.net/' . $moesif_id,
+		'wc-connect'              => 'https://https-api-woocommerce-com-3.moesif.net/' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**

@@ -58,6 +58,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'slack'                   => '/https:\/\/slack.com/',
 		'wp-api'                  => '/https:\/\/public-api.wordpress.com/',
 		'wc-connect'              => '/https:\/\/api.woocommerce.com/',
+		'eway'                    => '/https:\/\/api.ewaypayments.com/',
 	);
 
 	$replacements = array(
@@ -74,6 +75,7 @@ function handsome_bearded_guy_maybe_reroute_http_request( $return_value, $args, 
 		'slack'                   => 'https://https-slack-com-3.moesif.net/' . $moesif_id,
 		'wp-api'                  => 'https://https-public--api-wordpress-com-3.moesif.net/' . $moesif_id,
 		'wc-connect'              => 'https://https-api-woocommerce-com-3.moesif.net/' . $moesif_id,
+		'eway'                    => 'https://https-api-ewaypayments-com-3.moesif.net' . $moesif_id,
 	);
 	$replaced_url = preg_replace( $patterns, $replacements, $url );
 	/**
